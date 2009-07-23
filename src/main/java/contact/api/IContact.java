@@ -11,33 +11,22 @@ public interface IContact {
 
 	/**
 	 * <p>
-	 * Creates an IContact object
+	 * Set the value for phone number field for a contact
 	 * </p>
 	 * 
-	 * @param roughContact
+	 * @param phoneNb
 	 *            - String
-	 * @return IContact
 	 */
-	public IContact createContact(String roughContact);
+	public void setPhoneNb(String phoneNb);
 
 	/**
 	 * <p>
-	 * Set the value for id field for a contact
+	 * Return the phone number of a Contact
 	 * </p>
 	 * 
-	 * @param id
-	 *            - String
+	 * @return phoneNb - String
 	 */
-	public void setId(String id);
-
-	/**
-	 * <p>
-	 * Return the id of a Contact
-	 * </p>
-	 * 
-	 * @return id - String
-	 */
-	public String getId();
+	public String getPhoneNb();
 
 	/**
 	 * <p>
