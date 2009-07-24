@@ -3,6 +3,8 @@
  */
 package contact;
 
+import java.util.List;
+
 import contact.api.IContact;
 
 /**
@@ -11,7 +13,7 @@ import contact.api.IContact;
  */
 public class Contact implements IContact {
 
-	private String phoneNumber;
+	private String phoneNb;
 	private String name;
 	private String address;
 	private String cnp;
@@ -24,8 +26,11 @@ public class Contact implements IContact {
 	 * @param roughContact
 	 *            - String
 	 */
-	public Contact(String roughContact) {
-
+	public Contact(List<String> contactDetails) {
+		setPhoneNb(contactDetails.get(0));
+		setName(contactDetails.get(1));
+		setAddress(contactDetails.get(2));
+		setCNP(contactDetails.get(3));
 	}
 
 	/*
@@ -61,7 +66,7 @@ public class Contact implements IContact {
 	 * @see contact.api.IContact#getPhoneNb()
 	 */
 	public String getPhoneNb() {
-		return phoneNumber;
+		return phoneNb;
 	}
 
 	/*
@@ -70,7 +75,7 @@ public class Contact implements IContact {
 	 * @see contact.api.IContact#setAddress(java.lang.String)
 	 */
 	public void setAddress(String address) {
-		// TODO Auto-generated method stub
+		this.address = address;
 
 	}
 
@@ -80,7 +85,7 @@ public class Contact implements IContact {
 	 * @see contact.api.IContact#setCNP(java.lang.String)
 	 */
 	public void setCNP(String cnp) {
-		// TODO Auto-generated method stub
+		this.cnp = cnp;
 
 	}
 
@@ -90,7 +95,7 @@ public class Contact implements IContact {
 	 * @see contact.api.IContact#setName(java.lang.String)
 	 */
 	public void setName(String name) {
-		// TODO Auto-generated method stub
+		this.name = name;
 
 	}
 
@@ -100,7 +105,7 @@ public class Contact implements IContact {
 	 * @see contact.api.IContact#setPhoneNb(java.lang.String)
 	 */
 	public void setPhoneNb(String phoneNb) {
-		// TODO Auto-generated method stub
+		this.phoneNb = phoneNb;
 
 	}
 
