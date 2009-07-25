@@ -18,4 +18,5 @@ public interface IContactsXLS {
 	 *            - String
 	 */
 	public void writeContactsToXLS(String outputFilename);
+	
 }

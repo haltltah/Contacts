@@ -19,7 +19,7 @@ public class CollectContactsTest extends TestCase {
 
 	private ICollectContacts collectContacts;
 	List<IContact> contacts;
-	private String filename = "test.txt";
+	private String filename = "cornel.txt";
 
 	public void setUp() throws FileNotFoundException {
 		collectContacts = new CollectContacts(filename);
