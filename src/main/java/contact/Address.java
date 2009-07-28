@@ -13,6 +13,7 @@ public class Address implements IAddress {
 	private String city;
 	private String county;
 	private String sector;
+	final static private String CAPITALA = "Bucuresti"; 
 	
 	public Address(String address) {
 		List<String> addressDetails = new ArrayList<String>();
@@ -27,95 +28,74 @@ public class Address implements IAddress {
 	}
 	
 	private void processAddress(List<String> addressDetails, String address) {
-		String lastSubstring = getLastSubstring(address);
+		String delimiter = " ";
+		String lastSubstring = getLastSubstring(address, delimiter);
+		
+		int indexToBeRemoved = address.lastIndexOf(lastSubstring);
+		String addressWithoutLast = address.substring(0, indexToBeRemoved - 1);
+		System.out.println("addressWithoutLast: " + addressWithoutLast);
+		
+		
 		if ((lastSubstring.length() == 2) && (lastSubstring.charAt(0) == 'S')) {
-			processAddressBucuresti(addressDetails, address);
-		} else 
+			processAddressBucuresti(addressDetails, addressWithoutLast, lastSubstring);
+		} else {
+			addressDetails.set(2, lastSubstring);
 			if (address.contains("  ")) {
-				processAddressWithNotFullStreet(addressDetails, address);
+				processAddressWithNotFullStreet(addressDetails, addressWithoutLast, lastSubstring);
 			} else {
-				processAddressWithFullData(addressDetails, address);
+				processAddressWithFullData(addressDetails, addressWithoutLast, lastSubstring);
+			}
 		}
 		
 	}
 
 	private void processAddressWithFullData(List<String> addressDetails,
-			String address) {
-		Scanner scannerAddress3 = new Scanner(address);
-		scannerAddress3.useDelimiter(",");
-		
-		List<String> tempPartialStreetList = new ArrayList<String>();
-		while (scannerAddress3.hasNext()) {
-			 tempPartialStreetList.add(scannerAddress3.next());
-		}
-		System.out.println(tempPartialStreetList);
+			String address, String countyString) {
+		String delimiter = ", ";	
+		String[] tempPartialStreetList = address.split(delimiter);
 		String tempPartialStreet = "";
-		for (int i = 0; i < tempPartialStreetList.size() - 1; i++) {
-			tempPartialStreet = tempPartialStreet + tempPartialStreetList.get(i) + ",";
+		for (int i = 0; i < tempPartialStreetList.length - 1; i++) {
+			tempPartialStreet = tempPartialStreet + tempPartialStreetList[i] + delimiter;
 		}
-	//	tempPartialStreet = tempPartialStreet.substring(0, tempPartialStreet.length() - 2);
-		String lastPartAddress = tempPartialStreetList.get(tempPartialStreetList.size() - 1);
-		Scanner scannerAddress4 = new Scanner(lastPartAddress);
-		scannerAddress4.useDelimiter(" ");
-		String tempAp = scannerAddress4.next();
-		tempPartialStreet = tempPartialStreet + " " + tempAp;
-		addressDetails.set(0, tempPartialStreet);
-	//	String street = tempPartialStreet + ", " + tempAp;
-		System.out.println("full street: " + tempPartialStreet);
-		String cityCounty = lastPartAddress.substring(tempAp.length() + 2).trim();
-		System.out.println("cityCounty: " + cityCounty);
-		Scanner scannerAddress5 = new Scanner(cityCounty);
-		String county = "";
-		while (scannerAddress5.hasNext()) {
-			county = scannerAddress5.next();
-		}
-		addressDetails.set(2, county);
-		System.out.println("county: " + county);
-		int indexCounty = cityCounty.lastIndexOf(county);
-		String city = cityCounty.substring(0, indexCounty).trim();
-		addressDetails.set(1, city);
-		System.out.println("city: " + city);
+	
+		String lastPartStreet = tempPartialStreetList[tempPartialStreetList.length - 1];
 		
+		Scanner scannerAddress = new Scanner(lastPartStreet);
+		scannerAddress.useDelimiter(" ");
+		String tempAp = scannerAddress.next();
+		tempPartialStreet = tempPartialStreet  + tempAp;
+		addressDetails.set(0, tempPartialStreet);
+		addressDetails.set(1, address.substring(tempPartialStreet.length()).trim());
 		
 	}
 
 	private void processAddressWithNotFullStreet(List<String> addressDetails,
-			String address) {
-		String lastSubstring = getLastSubstring(address);
-		Scanner scannerAddress2 = new Scanner(address);
-		scannerAddress2.useDelimiter("  ");
-		addressDetails.set(0, scannerAddress2.next());
-		addressDetails.set(2, lastSubstring);
-		int indexBegin = addressDetails.get(0).length();
-		int indexEnd = address.lastIndexOf(lastSubstring) - 1;
-		String tempCity = address.substring(indexBegin, indexEnd).trim();
-		addressDetails.set(1, tempCity);
-		
+			String address, String countyString) {
+		Scanner scannerAddress = new Scanner(address);
+		scannerAddress.useDelimiter("  ");
+		addressDetails.set(0, scannerAddress.next());
+		addressDetails.set(1, scannerAddress.next().trim());
+
 	}
 
 	private void processAddressBucuresti(List<String> addressDetails,
-			String address) {
-		String sector = null;
-		Scanner scannerAddress = new Scanner(address);
-		scannerAddress.useDelimiter(" ");
-		while (scannerAddress.hasNext()) {
-			sector = scannerAddress.next();
-		}
-		addressDetails.set(1, "Bucuresti");
-		addressDetails.set(2, "");
-		addressDetails.set(3, sector);
-		int indexToBeRemoved = address.lastIndexOf("Bucuresti");
+			String address, String sectorString) {
+		addressDetails.set(1, CAPITALA);
+		addressDetails.set(3, sectorString);
+		int indexToBeRemoved = address.lastIndexOf(CAPITALA);
 		addressDetails.set(0, address.substring(0, indexToBeRemoved - 1));
 	}
 	
-	private String getLastSubstring(String address) {
-		String lastSubstring = null;
+	private String getLastSubstring(String address, String delimiter) {
+		/*String lastSubstring = null;
 		Scanner scannerAddress = new Scanner(address);
 		scannerAddress.useDelimiter(" ");
 		while (scannerAddress.hasNext()) {
 			lastSubstring = scannerAddress.next();
 		}
-		return lastSubstring;
+		return lastSubstring;*/
+		String[] addressSplited =  address.split(delimiter);
+		return addressSplited[addressSplited.length - 1];
 	}
 
 	public String getCity() {
