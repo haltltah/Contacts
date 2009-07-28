@@ -19,11 +19,12 @@ public class CollectContactsTest extends TestCase {
 
 	private ICollectContacts collectContacts;
 	List<IContact> contacts;
-	private String filename = "cornel.txt";
+	private String filename = "test.txt";
 
 	public void setUp() throws FileNotFoundException {
 		collectContacts = new CollectContacts(filename);
 		contacts = collectContacts.getGeneratedContacts();
+		System.out.println("testGeneratedContacts size: " + contacts.size());
 	}
 
 	/**
@@ -33,6 +34,7 @@ public class CollectContactsTest extends TestCase {
 	 */
 	public void testGeneratedContacts() {
 		IContact contact1 = contacts.get(0);
+		
 
 		assertEquals("0236418670", contact1.getPhoneNb());
 		assertEquals("GRIGORE GEANINA", contact1.getName());
@@ -41,12 +43,15 @@ public class CollectContactsTest extends TestCase {
 		assertEquals("2740412370036", contact1.getCNP());
 
 		IContact contact2 = contacts.get(1);
-
-		assertEquals("0236301316", contact2.getPhoneNb());
-		assertEquals("SPITALUL JUDETEAN SFANTUL APOSTOL ANDREI", contact2
+		System.out.println("Contact 2: " + contact2.getPhoneNb() + " " + contact2.getName());
+		
+		IContact contact3 = contacts.get(2);
+		System.out.println("Contact 3: " + contact3.getPhoneNb() + " " + contact3.getName());
+		assertEquals("0236301316", contact3.getPhoneNb());
+		assertEquals("SPITALUL JUDETEAN SFANTUL APOSTOL ANDREI", contact3
 				.getName());
-		assertEquals("Strada Brailei 177  Galati Gl", contact2.getAddress());
-		assertEquals("", contact2.getCNP());
+		assertEquals("Strada Brailei 177  Galati Gl", contact3.getAddress());
+		assertEquals("", contact3.getCNP());
 
 	}
 
