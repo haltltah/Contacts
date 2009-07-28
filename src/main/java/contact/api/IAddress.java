@@ -41,10 +41,20 @@ public interface IAddress {
 
 	/**
 	 * <p>
+	 * Set sector attribute
+	 * </p>
+	 * 
+	 * @param sector
+	 *            - String
+	 */
+	public void setSector(String sector);
+
+	/**
+	 * <p>
 	 * Return street attribute
 	 * </p>
 	 * 
-	 * @return
+	 * @return Street - String
 	 */
 	public String getStreet();
 
@@ -53,7 +63,7 @@ public interface IAddress {
 	 * Return city attribute
 	 * </p>
 	 * 
-	 * @return
+	 * @return City - String
 	 */
 	public String getCity();
 
@@ -62,8 +72,17 @@ public interface IAddress {
 	 * Return county attribute
 	 * </p>
 	 * 
-	 * @return
+	 * @return county - String
 	 */
 	public String getCounty();
+
+	/**
+	 * <p>
+	 * Return sector attribute
+	 * </p>
+	 * 
+	 * @return sector - String
+	 */
+	public String getSector();
 
 }
