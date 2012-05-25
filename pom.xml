@@ -7,8 +7,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<description>Contacts prj</description>
 	<scm>
-		<connection>scm:git:ssh://git@github.com:haltltah/Contacts.git</connection>
-		<url>scm:git:ssh://git@github.com:haltltah/Contacts.git</url>
+		<connection>scm:git:https://haltltah@github.com/haltltah/Contacts.git</connection>
+		<url>scm:git:https://haltltah@github.com/haltltah/Contacts.git</url>
 	</scm>
 	<build>
 		<plugins>
