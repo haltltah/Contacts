@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry kind="src" path="src/test/java"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" output="target/classes" path="src/main/java"/>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
 	<classpathentry kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/hirian/.m2/repository/junit/junit/4.5/junit-4.5.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre6"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry kind="lib" path="C:/Users/Lidia/.m2/repository/junit/junit/4.5/junit-4.5.jar"/>
+	<classpathentry kind="lib" path="E:/Kits/eclipse/plugins/poi-3.7.jar"/>
+	<classpathentry kind="lib" path="E:/Kits/eclipse/plugins/poi-ooxml-3.7.jar"/>
+	<classpathentry kind="lib" path="E:/Kits/eclipse/plugins/xmlbeans-2.5.0.jar"/>
+	<classpathentry kind="lib" path="E:/Kits/eclipse/plugins/org.openl.lib.poi.dev.modified-5.7.5.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

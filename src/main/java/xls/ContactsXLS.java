@@ -34,7 +34,7 @@ public class ContactsXLS implements IContactsXLS {
 	private FileOutputStream fileOut;
 
 	public enum ColumnsHeader {
-		PhoneNumber(0), Name(1), Address(2), CNP(3);
+		PhoneNumber(0), Name(1), Street(2), City(3), County(4), Sector(5), CNP(6);
 		private int column;
 
 		ColumnsHeader(int column) {
@@ -50,7 +50,7 @@ public class ContactsXLS implements IContactsXLS {
 			throws FileNotFoundException {
 		collectContacts = new CollectContacts(inputFilename);
 		contacts = collectContacts.getGeneratedContacts();
-		System.out.println("Number of contacts in file: "+ contacts.size());
+	//	System.out.println("Number of contacts in file: "+ contacts.size());
 		wb = new HSSFWorkbook();
 	}
 
@@ -106,8 +106,14 @@ public class ContactsXLS implements IContactsXLS {
 		cell.setCellValue(contact.getPhoneNb());
 		cell = row.createCell(ColumnsHeader.Name.getColumn());
 		cell.setCellValue(contact.getName());
-		cell = row.createCell(ColumnsHeader.Address.getColumn());
-		cell.setCellValue(contact.getAddress());
+		cell = row.createCell(ColumnsHeader.Street.getColumn());
+		cell.setCellValue(contact.getStreet());
+		cell = row.createCell(ColumnsHeader.City.getColumn());
+		cell.setCellValue(contact.getCity());
+		cell = row.createCell(ColumnsHeader.County.getColumn());
+		cell.setCellValue(contact.getCounty());
+		cell = row.createCell(ColumnsHeader.Sector.getColumn());
+		cell.setCellValue(contact.getSector());
 		cell = row.createCell(ColumnsHeader.CNP.getColumn());
 		cell.setCellValue(contact.getCNP());
 	}
@@ -129,8 +135,14 @@ public class ContactsXLS implements IContactsXLS {
 		cell.setCellValue(ColumnsHeader.PhoneNumber.toString());
 		cell = row.createCell(ColumnsHeader.Name.getColumn());
 		cell.setCellValue(ColumnsHeader.Name.toString());
-		cell = row.createCell(ColumnsHeader.Address.getColumn());
-		cell.setCellValue(ColumnsHeader.Address.toString());
+		cell = row.createCell(ColumnsHeader.Street.getColumn());
+		cell.setCellValue(ColumnsHeader.Street.toString());
+		cell = row.createCell(ColumnsHeader.City.getColumn());
+		cell.setCellValue(ColumnsHeader.City.toString());
+		cell = row.createCell(ColumnsHeader.County.getColumn());
+		cell.setCellValue(ColumnsHeader.County.toString());
+		cell = row.createCell(ColumnsHeader.Sector.getColumn());
+		cell.setCellValue(ColumnsHeader.Sector.toString());
 		cell = row.createCell(ColumnsHeader.CNP.getColumn());
 		cell.setCellValue(ColumnsHeader.CNP.toString());
 

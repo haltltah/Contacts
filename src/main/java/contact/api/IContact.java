@@ -3,6 +3,8 @@
  */
 package contact.api;
 
+import java.util.Date;
+
 /**
  * @author hirian
  * 
@@ -84,4 +86,36 @@ public interface IContact {
 	 * @return cnp - String
 	 */
 	public String getCNP();
+
+	/**
+	 * <p>
+	 * Return the Street from the address of the contact
+	 * </p>
+	 * @return
+	 */
+	public String getStreet();
+	
+	/**
+	 * <p>
+	 * Return the City from the address of the contact
+	 * </p>
+	 * @return
+	 */
+	public String getCity();
+
+	/**
+	 * <p>
+	 * Return the County from the address of the contact
+	 * </p>
+	 * @return
+	 */
+	public String getCounty();
+
+	/**
+	 * <p>
+	 * Return the Sector from the address of the contact
+	 * </p>
+	 * @return
+	 */
+	public String getSector();
 }

@@ -7,9 +7,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<description>Contacts prj</description>
 	<scm>
-		<connection>scm:git:ssh://git@github.com:dfbigu/Contacts.git
-		</connection>
-		<url>scm:git:ssh://git@github.com:dfbigu/Contacts.git</url>
+		<connection>scm:git:ssh://git@github.com:haltltah/Contacts.git</connection>
+		<url>scm:git:ssh://git@github.com:haltltah/Contacts.git</url>
 	</scm>
 	<build>
 		<plugins>
@@ -98,22 +97,27 @@
 			<groupId>org.apache.poi
 		</groupId>
 			<artifactId>poi</artifactId>
-			<version>3.5-beta5</version>
+			<version>3.7</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-contrib</artifactId>
-			<version>3.5-beta5</version>
+			<artifactId>poi-examples</artifactId>
+			<version>3.7</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>3.5-beta5</version>
+			<version>3.7</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-scratchpad</artifactId>
-			<version>3.5-beta5</version>
+			<version>3.7</version>
 		</dependency>
+		<dependency>
+        <groupId>org.openl.rules</groupId>
+        <artifactId>org.openl.lib.poi.dev</artifactId>
+        <version>5.7.5</version>
+      </dependency>
 	</dependencies>
 </project>

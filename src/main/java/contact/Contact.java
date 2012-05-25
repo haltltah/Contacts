@@ -5,6 +5,7 @@ package contact;
 
 import java.util.List;
 
+import contact.api.IAddress;
 import contact.api.IContact;
 
 /**
@@ -15,8 +16,9 @@ public class Contact implements IContact {
 
 	private String phoneNb;
 	private String name;
-	private String address;
+	private String addressString;
 	private String cnp;
+	private IAddress address;
 	
 	/**
 	 * <p>
@@ -29,7 +31,8 @@ public class Contact implements IContact {
 	public Contact(List<String> contactDetails) {
 		setPhoneNb(contactDetails.get(0));
 		setName(contactDetails.get(1));
-		setAddress(contactDetails.get(2));
+		address = new Address(contactDetails.get(2));
+		//setAddress(contactDetails.get(2));
 		setCNP(contactDetails.get(3));
 	}
 
@@ -39,7 +42,7 @@ public class Contact implements IContact {
 	 * @see contact.api.IContact#getAddress()
 	 */
 	public String getAddress() {
-		return address;
+		return addressString;
 	}
 
 	/*
@@ -74,8 +77,8 @@ public class Contact implements IContact {
 	 * 
 	 * @see contact.api.IContact#setAddress(java.lang.String)
 	 */
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddress(String addressString) {
+		this.addressString = addressString;
 
 	}
 
@@ -107,6 +110,26 @@ public class Contact implements IContact {
 	public void setPhoneNb(String phoneNb) {
 		this.phoneNb = phoneNb;
 
+	}
+
+	public String getCity() {
+		// TODO Auto-generated method stub
+		return address.getCity();
+	}
+
+	public String getCounty() {
+		// TODO Auto-generated method stub
+		return address.getCounty();
+	}
+
+	public String getSector() {
+		// TODO Auto-generated method stub
+		return address.getSector();
+	}
+
+	public String getStreet() {
+		// TODO Auto-generated method stub
+		return address.getStreet();
 	}
 
 }
